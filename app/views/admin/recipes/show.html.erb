@@ -1,0 +1,27 @@
+<div class="backcolor">
+  <h1>レシピ</h1>
+  <div class="container">
+    <div class="row">
+     <div class="col-lg-4" >
+  <%= attachment_image_tag @recipe, :image, :fill,300,200, format:'jpg' %>
+  </div>
+  <div class="col-lg-8" >
+    <table>
+      <tr>
+  <th>レシピ名</th>
+  <td><%= @recipe.cooking_name %></td>
+  </tr>
+   <tr>
+  <th><%= @recipe.amount %></th>
+  <td>人分</td>
+  </tr>
+   <tr>
+  <th>レシピ</th>
+  <td><%= @recipe.recipe %></td>
+  </tr>
+  </table>
+  </div>
+  </div>
+  </div>
+  <%=link_to"編集画面", edit_admin_recipe_path %>
+</div>

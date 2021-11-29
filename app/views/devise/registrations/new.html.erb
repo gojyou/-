@@ -1,0 +1,65 @@
+<div class="login">
+  <h2>新規登録</h2>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :名前 %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+  
+     <div class="field">
+      <%= f.label :ジャンル %><br />
+      <%= f.text_field :genre, autofocus: true, autocomplete: "genre" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :地域 %><br />
+      <%= f.text_field :area, autofocus: true, autocomplete: "area" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :最寄り駅 %><br />
+      <%= f.text_field :station, autofocus: true, autocomplete: "station" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :一言 %><br />
+      <%= f.text_field :phrase, autofocus: true, autocomplete: "phrase" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :リンク %><br />
+      <%= f.text_field :url, autofocus: true, autocomplete: "url" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :イメージ %><br />
+      <%= f.attachment_field :image, autofocus: true, autocomplete: "image_id" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :メール %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :パスワード %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :パスワード（確認） %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+  
+<%= render "devise/shared/links" %>
+</div>

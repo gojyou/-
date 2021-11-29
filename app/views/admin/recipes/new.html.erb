@@ -1,0 +1,16 @@
+<div class="backcolor">
+  <%= form_with model:@recipe,url: admin_recipes_path, local:true do |t| %>
+  <table>
+    <tr>
+      <th>レシピ名</th>
+      <td><%= t.text_field :cooking_name %></td></tr>
+       <tr> <th>何人分</th>
+      <td><%= t.text_field :amount %></td></tr>
+      <tr><th>レシピ</th>
+      <td><%= t.text_area :recipe %></td></tr>
+      <tr><th>イメージ</th>
+      <td><%= t.attachment_field :image %></td></tr>
+  </table>
+  <%= t.submit'投稿' %>
+<% end %>
+</div>

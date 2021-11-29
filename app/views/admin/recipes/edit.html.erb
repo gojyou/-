@@ -1,0 +1,19 @@
+<h1>レシピ編集</h1>
+<%= form_with model:@recipe,url: admin_recipe_path(@recipe), local:true do |t| %>
+<table>
+  <tr>
+    <th>レシピ名</th>
+    <td><%= t.text_field :cooking_name %></td></tr>
+     <tr> <th>何人分</th>
+    <td><%= t.text_field :amount %></td></tr>
+    <tr><th>レシピ</th>
+    <td><%= t.text_area :recipe %></td></tr>
+    <tr><th>イメージ</th>
+    <td><%= t.attachment_field :image %></td></tr>
+</table>
+<% if  @store=current_admin_store %>
+<%= t.submit'更新' %>
+<%= link_to '削除',admin_recipe_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
+
+<% end %>

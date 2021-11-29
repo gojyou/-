@@ -1,0 +1,26 @@
+<div class="backcolor">
+  <h1>お店情報の編集</h1>
+  <%= form_with model:@store,url: admin_stores_path(@store), local:true do |t| %>
+  <table>
+    <tr>
+      <th>店名</th>
+      <td><%= t.text_field :name %></td></tr>
+      <tr><th>ジャンル</th>
+      <td><%= t.text_field :genre %></td></tr>
+      <tr><th>地域</th>
+      <td><%= t.text_field :area %></td></tr>
+      <tr><th>最寄り駅</th>
+      <td><%= t.text_field :station %></td></tr>
+      <tr> <th>URL</th>
+      <td><%= t.text_field :url %></td></tr>
+     <tr> <th>一言</th>
+      <td><%= t.text_area :phrase %></td></tr>
+     <tr><th>イメージ写真</th>
+      <td><%= t.attachment_field :image %></td></tr>
+  <% if  @store=current_admin_store %>
+  </table>
+  <%= t.submit"更新" %>
+  <% end %>
+  <%= link_to '退会',admin_store_path, method: :delete, "data-confirm" => "本当に退会しますか？" %>
+  <% end %>
+</div>

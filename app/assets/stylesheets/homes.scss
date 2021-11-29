@@ -1,0 +1,19 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+* {
+  margin:0; padding:0;
+}
+.backcolor{
+  background-color: '#FFF5EE';
+}
+.search{
+  padding:5px 5px;
+}
+.rank{
+  padding:5px 5px;
+}

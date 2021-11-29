@@ -1,0 +1,6 @@
+<h1>マイページ</h1>
+<table>
+            <tr><td> 名前  <%= @user.name %></td></tr>
+            <tr><td> 最寄り駅  <%= @user.email %></td></tr>
+             <tr><td><%= link_to '退会', public_users_path, method: :delete, "data-confirm" => "本当に退会しますか？"  %></td></tr>
+        </table>
