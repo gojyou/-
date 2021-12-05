@@ -6,8 +6,12 @@ class  Admin::RecipesController < ApplicationController
 
   def create
     recipe=Recipe.new(recipe_params)
-    recipe.save
-    redirect_to admin_recipe_path(recipe)
+    recipe.store_id=current_admin_store.id
+    if recipe.save
+      redirect_to admin_recipe_path(recipe.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -41,7 +45,7 @@ class  Admin::RecipesController < ApplicationController
    private
 
     def recipe_params
-      params.require(:recipe).permit(:store_id, :cooking_name, :recipe, :amount, :image)
+      params.require(:recipe).permit( :cooking_name, :recipe, :amount, :image)
     end
 
 
