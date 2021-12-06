@@ -5,9 +5,9 @@ class  Admin::RecipesController < ApplicationController
   end
 
   def create
-    recipe=Recipe.new(recipe_params)
-    recipe.store_id=current_admin_store.id
-    if recipe.save
+    @recipe=Recipe.new(recipe_params)
+    @recipe.store_id=current_admin_store.id
+    if @recipe.save
       redirect_to admin_recipe_path(recipe.id)
     else
       render :new

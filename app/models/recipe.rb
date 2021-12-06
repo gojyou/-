@@ -7,4 +7,9 @@ class Recipe < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  validates :cooking_name, presence: true
+  validates :recipe, presence: true
+  validates :amount, presence: true
+  validates :image_id, presence: true
 end

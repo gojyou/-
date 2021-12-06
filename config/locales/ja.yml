@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      recipe:
+        cooking_name: レシピ名
+        recipe: レシピ
+        amount: 人数
+        image_id: イメージ写真
+    errors:
+      messages:
+        blank: が入力されていません
