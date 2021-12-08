@@ -1,5 +1,5 @@
 <div class="backcolor">
-  <h1>レシピ</h1>
+  <h1 class="recipeTitle">レシピ</h1>
   <div class="container">
     <div class="row">
      <div class="col-lg-4" >
@@ -9,7 +9,7 @@
         <table>
           <tr>
             <th>レシピ名</th>
-            <td><%= @recipe.cooking_name %></td>
+            <td class="cooking_name"><%= @recipe.cooking_name %></td>
           </tr>
            <tr>
             <th><%= @recipe.amount %></th>
@@ -28,15 +28,14 @@
       </div>
     </div>
   </div>
-  <%= link_to 'トップページ', root_path %>
   <% if public_user_signed_in? %>
     <% if @recipe.favorited_by?(current_public_user) %>
-        <p>
+        <p class="iine">
           <%= link_to public_recipe_favorites_path(@recipe), method: :delete do %>
           ♥<%= @recipe.favorites.count %> いいね</p>
           <% end %>
    <% else %>
-        <p>
+        <p class="iine">
           <%= link_to public_recipe_favorites_path(@recipe), method: :post do %>
             ♡<%= @recipe.favorites.count %> いいね</p>
           <% end %>
@@ -46,5 +45,6 @@
   いいねしたレシピの一覧を見ることができます</br>
   ログインページは<%= link_to'こちら',new_public_user_registration_path %></p>
 <% end %>
+<div class="top_page"><%= link_to 'トップページ', root_path %></div>
 
 </div>
