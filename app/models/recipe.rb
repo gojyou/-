@@ -11,5 +11,5 @@ class Recipe < ApplicationRecord
   validates :cooking_name, presence: true
   validates :recipe, presence: true
   validates :amount, presence: true
-  validates :image_id, presence: true
+  validates :image, presence: true
 end

@@ -8,7 +8,7 @@ class  Admin::RecipesController < ApplicationController
     @recipe=Recipe.new(recipe_params)
     @recipe.store_id=current_admin_store.id
     if @recipe.save
-      redirect_to admin_recipe_path(recipe.id)
+      redirect_to admin_recipe_path(@recipe)
     else
       render :new
     end
