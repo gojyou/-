@@ -1,8 +1,8 @@
 <div class="backcolor">
   <div class="search">
     <%= form_with url: search_public_recipes_path, method: :get, local: true do |f| %>
-      <%= f.text_field :cooking_name %>
-      <%= f.submit :search %>
+    <%= f.text_field :cooking_name, placeholder: "キーワードで検索"%>
+      <%= f.submit :search, placeholder: "検索" %>
     <% end %>
   </div>
   <div class="rank"><%= link_to 'ランキング',rank_path %></div>
