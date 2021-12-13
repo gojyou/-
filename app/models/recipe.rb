@@ -1,8 +1,10 @@
 class Recipe < ApplicationRecord
-    attachment :image
+  # アタッチメント
+  attachment :image
 
-    belongs_to :store
-    has_many :favorites
+  belongs_to :store
+  has_many :favorites
+  has_many :recipe_comments, dependent: :destroy
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

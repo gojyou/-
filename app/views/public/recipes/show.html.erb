@@ -40,11 +40,31 @@
             ♡<%= @recipe.favorites.count %> いいね</p>
           <% end %>
     <% end %>
+
+  <div>
+  <!--<p>コメント件数：<%= @recipe.recipe_comments.count %></p>-->
+  <!--<% @recipe.recipe_comments.each do |recipe_comment| %>-->
+  <!--  <%= recipe_comment.user.name %>-->
+  <!--  <%= recipe_comment.created_at.strftime('%Y/%m/%d') %><%= recipe_comment.comment %>-->
+  <!--  <% if recipe_comment.user == current_public_user %>-->
+  <!--  <div>-->
+  <!--    <%= link_to "削除",public_recipe_recipe_comment_path(recipe_comment.recipe.id), method: :delete %>-->
+  <!--  </div>-->
+  <!--  <% end %>-->
+  <!--<% end %>-->
+  <!--</div>-->
+  <!--<div>-->
+  <!--<%= form_with url: public_recipe_recipe_comments_path(@recipe.id), model: RecipeComment.new, local: true do |f| %>-->
+  <!--  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>-->
+  <!--  <%= f.submit "送信する" %>-->
+  <!--<% end %>-->
+  </div>
   <% else %>
-  <p>ログインして頂くとレシピにいいねをつけたり</br>
+  <p>ログインして頂くとレシピにいいねをつけたりコメントを送ったり</br>
   いいねしたレシピの一覧を見ることができます</br>
   ログインページは<%= link_to'こちら',new_public_user_registration_path %></p>
 <% end %>
+
 
 
 </div>

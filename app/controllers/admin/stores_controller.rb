@@ -4,7 +4,6 @@ class  Admin::StoresController < ApplicationController
     store=Store.new(store_params)
     store.save
     sign_in store
-    #sign_in Store.find_by(email: "k@k")
     redirect_to admin_stores_path
   end
 

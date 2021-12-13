@@ -32,6 +32,7 @@ class  Admin::RecipesController < ApplicationController
   def index
 
     @recipe=Recipe.new
+    #ページネーション
     @recipes=current_admin_store.recipes.page(params[:page]).reverse_order
 
   end

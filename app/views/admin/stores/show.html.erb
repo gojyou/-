@@ -8,6 +8,7 @@
      <div class="col-lg-8" >
           <table>
               <tr><th>店名</th><td>   <%= @store.name %></td></tr>
+              <%#URLを外部リンクにする%>
               <tr><th> url</th><td>  <%= Rinku.auto_link(@store.url, :all, 'target="_blank"').html_safe %></td></tr>
               <tr><th>一言</th><td>  <%= @store.phrase %></td></tr>
               <tr><th>ジャンル</th><td>  <%= @store.genre %></td></tr>

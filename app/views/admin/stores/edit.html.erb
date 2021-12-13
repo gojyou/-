@@ -21,6 +21,7 @@
   </table>
   <%= t.submit"更新" %>
   <% end %>
+  <%#バリデーションのエラーメッセージ%>
   <%= link_to '退会',admin_store_path, method: :delete, "data-confirm" => "本当に退会しますか？" %>
   <% end %>
 </div>

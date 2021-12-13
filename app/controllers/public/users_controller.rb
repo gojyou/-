@@ -4,7 +4,7 @@ class Public::UsersController < ApplicationController
   end
 
   def destory
-    @user=current_public_uder
+    @user=current_public_user
     @user.destroy
     redirect_to root_path
   end

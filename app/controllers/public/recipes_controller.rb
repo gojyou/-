@@ -2,29 +2,29 @@ class Public::RecipesController < ApplicationController
   def show
    @recipe=Recipe.find(params[:id])
    @store = @recipe.store
+   @recipe_comment=RecipeComment.new
   end
 
   def index
+    #お気に入りしたレシピを配列として表す
     favorites = Favorite.where(user_id: current_public_user.id).pluck(:recipe_id)
     @recipes = Recipe.find(favorites)
+    #配列をページング
     @recipes =  Kaminari.paginate_array(@recipes).page(params[:page]).per(2)
   end
 
-  def stores_recipe
-    @recipes=Recipe.where(store_id:params[:store_id])
-  end
-
   def search
-    if params[:cooking_name].present?
-      store = Store.find_by(genre: params[:cooking_name])
+    #オブジェクトであるレシーバーの値が存在するか否か
+    if params[:search_word].present?
+      store = Store.find_by(genre: params[:search_word])
       if store
         store_recipes = store.recipes
       else
-        store = Store.find_by(area: params[:cooking_name])
+        store = Store.find_by(area: params[:search_word])
         if store
           store_recipes = store.recipes
         else
-          store = Store.find_by(station: params[:cooking_name])
+          store = Store.find_by(station: params[:search_word])
           if store
             store_recipes = store.recipes
           else
@@ -32,7 +32,7 @@ class Public::RecipesController < ApplicationController
           end
         end
       end
-      @recipes = Recipe.where(' cooking_name LIKE ?', "%#{params[:cooking_name]}%").to_a + store_recipes.to_a
+      @recipes = Recipe.where(' search_word LIKE ?', "%#{params[:search_word]}%").to_a + store_recipes.to_a
     else
       @recipes = Recipe.none
     end
