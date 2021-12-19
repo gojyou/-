@@ -14,7 +14,15 @@ class Public::RecipesController < ApplicationController
   end
 
   def search
-    #オブジェクトであるレシーバーの値が存在するか否か
+    #セレクトボックス
+    @stores = Store.where("genre LIKE ?", "%#{params[:genre]}%")&&
+    @stores = Store.where("area LIKE ?", "%#{params[:area]}%")&&
+    @stores = Store.where("station LIKE ?", "%#{params[:station]}%")
+    @recipes = Recipe.where(store_id: @stores.pluck(:id))
+
+
+
+    # オブジェクトであるレシーバーの値が存在するか否か
     if params[:search_word].present?
       store = Store.find_by(genre: params[:search_word])
       if store
@@ -32,7 +40,8 @@ class Public::RecipesController < ApplicationController
           end
         end
       end
-      @recipes = Recipe.where(' search_word LIKE ?', "%#{params[:search_word]}%").to_a + store_recipes.to_a
+      @recipes =  store_recipes
+
     else
       @recipes = Recipe.none
     end

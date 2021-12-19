@@ -1,6 +1,11 @@
 class HomesController < ApplicationController
   def top
     @recipes=Recipe.all.page(params[:page]).reverse_order
+    @genre = Store.group(:genre).pluck(:genre).sort
+    @area = Store.group(:area).pluck(:area).sort
+    @station = Store.group(:station).pluck(:station).sort
+
+
   end
 
   def rank
