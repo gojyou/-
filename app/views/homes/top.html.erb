@@ -8,11 +8,11 @@
 <% end %>
 
     <%= form_with url: search_public_recipes_path, method: :get, local: true do |f| %>
-    <%= f.text_area :search_word, placeholder: "ジャンル、エリア、最寄り駅で検索!"%>
+    <%= f.text_area :search_word, placeholder: "ジャンル、エリア、最寄り駅で検索"%>
       <%= f.submit "検索" %>
     <% end %>
   </div>
-  <div class="rank"><%= link_to 'ランキング',rank_path %></div>
+  <div class="rank"><%= link_to 'ランキング!',rank_path %></div>
     <table>
       <tr>
         <th>イメージ</th>
