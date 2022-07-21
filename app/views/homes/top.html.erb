@@ -1,16 +1,16 @@
 <div class="backcolor">
-  <div class="search">
-<%= form_tag(search_public_recipes_path, method: "get") do %>
- <%= select_tag 'genre', options_for_select(@genre) %>
- <%= select_tag 'area', options_for_select(@area) %>
- <%= select_tag 'station', options_for_select(@station) %>
- <%= submit_tag "絞り込み検索" %>
-<% end %>
+   <div class="search">
+<%#= form_tag(search_public_recipes_path, method: "get") do %>
+ <%#= select_tag 'genre', options_for_select(@genre) %>
+ <%#= select_tag 'area', options_for_select(@area) %>
+ <%#= select_tag 'station', options_for_select(@station) %>
+ <%#= submit_tag "絞り込み検索" %>
+<%# end %>
 
-    <%= form_with url: search_public_recipes_path, method: :get, local: true do |f| %>
-    <%= f.text_area :search_word, placeholder: "ジャンル、エリア、最寄り駅で検索"%>
-      <%= f.submit "検索" %>
-    <% end %>
+    <%#= form_with url: search_public_recipes_path, method: :get, local: true do |f| %>
+    <%#= f.text_area :search_word, placeholder: "ジャンル、エリア、最寄り駅で検索"%>
+      <%#= f.submit "検索" %>
+    <%# end %>
   </div>
   <div class="rank"><%= link_to 'ランキング!',rank_path %></div>
     <table>
